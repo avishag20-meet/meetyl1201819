@@ -1,5 +1,5 @@
 #class animal (object):
-	def __init__(self,sound,name,age,favorite_color):
+	#def __init__(self,sound,name,age,favorite_color):
 #		self.sound = sound
 #		self.name = name
 #		self.age = age
@@ -17,11 +17,19 @@
 #pig.make_sound ()
 
 class person (object):
-	def __init__(self, name, age, city, gender):
-		self.sound = sound
+	def __init__(self, name, sound, age, city, gender, food):
 		self.name = name
+		self.sound = sound
 		self.age = age
 		self.city = city
 		self.gender = gender
+		self.food = food
+	def eat (self):
+		print (self.name + " is eating " +self.food)
+	def birthday (self):
+		print (self.name + " is " + self.age + " years old")
 
-perosna = person ("dolores", "68", "london", "male")	
+man = person ("Dolores", "wow", "68", "london", "male", "knedalach")
+man.eat()
+man.birthday()
+
