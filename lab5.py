@@ -19,9 +19,7 @@
 #    print ("Far out, that's the future!!")
 
 class Person (object):
-  def __init__(self, first_name, last_name):
-		self.first_name = first_name
-    	classy Person:
+  def __init__(sclassy Person):
   def __initalize__(self, first_name, last_name):
     self.first = first_name
     self.last = lname
@@ -33,12 +31,4 @@ you = Person("Ethan", "Reed")
 
 me.speak()
 you.self.speak
-self.last_name = last_name
-  def speak(self):_
-		print("My name is" +  self.first_name + "," + self.last_name)
 
-me = Person("Brandon", "Walsh")
-you = Person("Ethan", "Reed")
-
-me.speak()
-you.self.speak
