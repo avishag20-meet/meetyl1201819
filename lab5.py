@@ -149,6 +149,32 @@
 #		self.color = color
 #	def stupid(self):
 #		print("This is a tale about " + str(self.balloons) + " balloons. The first kid is " + self.name + " who got a " + self.color + " balloon")
-
+#
 #r = person ("Ron", 5, "yellow")
-#r.stupid()
+#.stupid()
+
+####problem 8-
+#class Cake(object):
+#	def __init__(self, name , flavor):
+#		self.name = name
+#		self.cake_flavor = flavor
+#	def eat(self):
+#		print("Yummy!!! " + self.name + "is eating a"+ self.cake_flavor + " cake")
+
+#something = Cake ("tobias ", " vanilla")
+#something.eat()
+
+####problem 9-
+class Cat(object):
+	def __init__(self, name, age):
+		self.name = name
+		self.age = int(age) 
+	def birthday(self):
+		self.age += 1
+		if self.age >= 100:
+			print("Dong dong, the cat is dead!")
+		else:
+			print(self.name, "is having it's", self.age, "birthday!")
+
+mycat = Cat ("harry", "33" )
+mycat.birthday()
