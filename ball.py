@@ -19,16 +19,16 @@ class Ball (Turtle):
 		newx = current_x + self.dx
 		newy = current_y + self.dy
 		right_side = newx + self.r
-		left_side = newx + self.r
+		left_side = newx - self.r
 		up_side = newy + self.r
-		down_side = newy + self.r
+		down_side = newy - self.r
 		self.goto(newx, newy)
 
 		if right_side > screen_width:
 			self.dx = -self.dx 
-		if left_side > screen_width:
+		if left_side < -screen_width:
 			self.dx = -self.dx
 		if up_side > screen_height:
 			self.dy = -self.dy
-		if down_side > screen_height:
+		if down_side < -screen_height:
 			self.dy = -self.dy
