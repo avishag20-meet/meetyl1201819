@@ -14,15 +14,16 @@ SLEEP = 0.0077
 SCREEN_WIDTH = turtle.getcanvas().winfo_width()/2
 SCREEN_HEIGHT = turtle.getcanvas().winfo_height()/2
 
-NUMBER_OF_BALLS = 6
+#determines balls defenitions 
+NUMBER_OF_BALLS = 7
 MINIMUM_BALL_RADIUS = 10
-MAXIMUM_BALL_RADIUS = 80
+MAXIMUM_BALL_RADIUS = 73
 MINIMUM_BALL_DX = -5
 MAXIMUM_BALL_DX = 5
 MINIMUM_BALL_DY = -5
 MAXIMUM_BALL_DY = 5
 BALLS = [] 
-MY_BALL = Ball(0, 0, 2, 2, 60, "red")
+MY_BALL = Ball(0, 0, 2, 2, 60, "green")
 
 for m in range(NUMBER_OF_BALLS):
 	x = random.randint(-SCREEN_WIDTH + MAXIMUM_BALL_RADIUS, SCREEN_WIDTH - MAXIMUM_BALL_RADIUS)
@@ -36,8 +37,9 @@ for m in range(NUMBER_OF_BALLS):
 
 def move_all_balls():
 	for ball in BALLS:
-		ball.move(SCREEN_WIDTH, SCREEN_HEIGHT)
+		ball.move(SCREEN_WIDTH-20, SCREEN_HEIGHT-20)
 
+#checks when balls collides
 def collide(ball1, ball2):
 	if ball1 == ball2:
 		return False
@@ -51,6 +53,19 @@ def collide(ball1, ball2):
 	 	return True
 	else: 
 	 	return False	
+
+#borders
+def draw_borders(corner_x, corner_y):
+	turtle.penup()
+	turtle.goto(-corner_x, -corner_y)
+	turtle.pendown()
+	turtle.color("red")
+	turtle.goto(-corner_x, corner_y)
+	turtle.goto(corner_x, corner_y)
+	turtle.goto(corner_x, -corner_y)
+	turtle.goto(-corner_x, -corner_y)
+	turtle.penup()
+
 
 def check_all_balls_collision():
 	for ball1 in BALLS:
@@ -86,6 +101,7 @@ def check_all_balls_collision():
 					ball2.r += 1
 					ball2.shapesize(ball2.r/10)					 
 
+#checks what touches my ball
 def check_myball_collision():
 	for BALL in BALLS:
 		if  collide(MY_BALL, BALL):
@@ -108,7 +124,7 @@ def check_myball_collision():
 				BALL.r = r
 	return True
 
-#moveing my ball
+#moves my ball
 def movearound(event):
 	x = event.x - SCREEN_WIDTH
 	y = SCREEN_HEIGHT - event.y
@@ -122,7 +138,13 @@ while RUNNING:
 	move_all_balls()
 	check_all_balls_collision()
 	RUNNING = check_myball_collision()
+	draw_borders(SCREEN_WIDTH - 20, SCREEN_HEIGHT-20)
 	turtle.update()
 	time.sleep(SLEEP)
 
+#writes game over
+turtle.color("red")
+turtle.goto(0,0)
+turtle.write("Game over", align = "center", font = ("david" ,90, "normal"))
 
+time.sleep(3)
